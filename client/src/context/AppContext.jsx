@@ -23,8 +23,11 @@ export const AppProvider = ({ children }) => {
   const fetchIsAdmin = async () => {
     try {
       const { data } = await axios.get("/api/admin/is-admin", {
-        headers: { Authorization: `Bearer ${await getToken()}` },
+        headers: {
+          Authorization: `Bearer ${await getToken()}`,
+        },
       });
+
       setIsAdmin(data.isAdmin);
 
       if (!data.isAdmin && location.pathname.startsWith("/admin")) {
@@ -39,13 +42,18 @@ export const AppProvider = ({ children }) => {
   const fetchShows = async () => {
     try {
       const { data } = await axios.get("/api/show/all");
+
       if (data.success) {
-        setShows(data.shows);
+        const validShows = (data.shows || []).filter(
+          (movie) => movie && movie._id,
+        );
+
+        setShows(validShows);
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching shows:", error);
     }
   };
 
