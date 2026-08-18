@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/__clerk/:path*",
-      "destination": "https://cinemax-server-nu.vercel.app/__clerk/:path*"
+      "destination": "https://clerk.cinemax-client-cyan.vercel.app/__clerk/:path*"
     },
     {
       "source": "/(.*)",
