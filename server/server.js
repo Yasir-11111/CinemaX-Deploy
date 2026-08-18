@@ -30,11 +30,15 @@ app.use(
 // Middleware
 app.use(express.json());
 app.use(cors());
+console.log("Clerk Publishable:", process.env.CLERK_PUBLISHABLE_KEY);
+console.log(
+  "Clerk Secret:",
+  process.env.CLERK_SECRET_KEY ? "FOUND" : "MISSING",
+);
 app.use(
   clerkMiddleware({
-    frontendApiProxy: {
-      enabled: true,
-    },
+    publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
+    secretKey: process.env.CLERK_SECRET_KEY,
   }),
 );
 
