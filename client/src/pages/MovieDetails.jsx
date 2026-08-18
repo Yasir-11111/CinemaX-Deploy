@@ -76,7 +76,7 @@ const MovieDetails = () => {
         <div className="relative flex flex-col gap-3">
           <BlurCircle top="-100px" left="-100px" />
 
-          <p className="text-primary">ENGLISH</p>
+          <p className="text-primary">HINDI</p>
 
           <h1 className="text-4xl font-semibold max-w-96 text-balance">
             {show.movie.title}
