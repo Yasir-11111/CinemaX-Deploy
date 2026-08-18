@@ -12,7 +12,10 @@ if (!PUBLISHABLE_KEY) {
 }
 
 createRoot(document.getElementById("root")).render(
-  <ClerkProvider publishableKey={PUBLISHABLE_KEY} proxyUrl="/__clerk">
+  <ClerkProvider
+    publishableKey={PUBLISHABLE_KEY}
+    proxyUrl={import.meta.env.VITE_CLERK_PROXY_URL}
+  >
     <BrowserRouter>
       <AppProvider>
         <App />
