@@ -1,67 +1,104 @@
 # 🎬 CinemaX - Movie Booking Platform
 
-CinemaX is a full-stack movie booking application where users can explore movies, view details, select shows, and book movie tickets. It provides a modern cinema experience with authentication, booking management, and an admin dashboard.
+CinemaX is a full-stack movie booking web application that allows users to explore movies, view details, select shows, and book tickets. It provides a complete cinema experience with authentication, payments, booking management, and an admin dashboard.
 
-## 🌐 Live Demo
+---
 
-Frontend:
+## 🌐 Live Application
+
+### Frontend
 https://cinemax-client-cyan.vercel.app/
 
-Backend:
+### Backend
 https://cinemax-server-nu.vercel.app/
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-### 👤 User Features
-- User authentication using Clerk
-- Browse movies
+## 👤 User Features
+
+- Secure authentication using Clerk
+- Browse latest movies
+- Search movies
 - View movie details
-- View cast information
-- Select movie shows
-- Book tickets
+- View movie cast information
+- Select available shows
+- Choose seats
+- Book movie tickets
 - View booking history
-- Responsive UI
+- Receive booking confirmation emails
+- Responsive design for all devices
 
-### 🎬 Movie Features
+
+## 🎬 Movie Features
+
 - Movie listing
 - Movie details page
-- Movie posters and backdrops
-- Cast details
-- Show timings
-- Seat booking system
+- Movie posters and backdrop images
+- Bollywood cast information
+- Show timing management
+- Seat availability system
 
-### 🛠 Admin Features
-- Add movie shows
-- Manage bookings
-- Dashboard statistics
-- Revenue tracking
+
+## 💳 Payment Features
+
+- Stripe payment integration
+- Secure checkout
+- Payment confirmation
+- Booking creation after successful payment
+
+
+## 🛠 Admin Dashboard
+
+- Add new movie shows
+- Manage movies
+- View all bookings
+- Track revenue
+- Dashboard analytics
 
 ---
 
 # 🚀 Tech Stack
 
 ## Frontend
+
 - React.js
 - Vite
 - Tailwind CSS
 - React Router DOM
 - Axios
 - Clerk Authentication
-- Lucide React
+- Lucide React Icons
+
 
 ## Backend
+
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
+- Inngest
 
-## APIs
-- TMDB API
+
+## Third Party Services
+
+- Clerk - Authentication
+- TMDB API - Movie Data
+- Stripe - Payments
+- Brevo SMTP - Email Service
+- MongoDB Atlas - Database
+
 
 ## Deployment
+
+Frontend:
 - Vercel
+
+Backend:
+- Vercel
+
+Database:
 - MongoDB Atlas
 
 ---
@@ -72,17 +109,26 @@ https://cinemax-server-nu.vercel.app/
 CinemaX
 │
 ├── client
+│   │
 │   ├── src
-│   ├── components
-│   ├── pages
-│   ├── context
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── context
+│   │   ├── assets
+│   │   └── App.jsx
+│   │
+│   ├── .env.example
 │   └── package.json
 │
 ├── server
+│   │
 │   ├── controllers
 │   ├── models
 │   ├── routes
+│   ├── middleware
 │   ├── server.js
+│   │
+│   ├── .env.example
 │   └── package.json
 │
 └── README.md
@@ -106,27 +152,39 @@ cd CinemaX
 
 ---
 
-# Frontend Setup
+# 💻 Frontend Setup
+
+Navigate to client:
 
 ```bash
 cd client
+```
+
+Install dependencies:
+
+```bash
 npm install
 ```
 
 Create `.env` file:
 
 ```env
+VITE_CURRENCY=$
+
+VITE_BASE_URL=http://localhost:3000
+
+VITE_TMDB_IMAGE_BASE_URL=https://image.tmdb.org/t/p/original
+
 VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-VITE_BACKEND_URL=your_backend_url
 ```
 
-Run:
+Start frontend:
 
 ```bash
 npm run dev
 ```
 
-Frontend:
+Frontend runs on:
 
 ```
 http://localhost:5173
@@ -134,65 +192,101 @@ http://localhost:5173
 
 ---
 
-# Backend Setup
+# 🖥 Backend Setup
+
+Navigate to server:
 
 ```bash
 cd server
+```
+
+Install dependencies:
+
+```bash
 npm install
 ```
 
 Create `.env` file:
 
 ```env
-PORT=5000
+# Database
+MONGODB_URI=your_mongodb_connection_string
 
-MONGODB_URI=your_mongodb_uri
 
-CLERK_SECRET_KEY=your_clerk_secret_key
+# Clerk Authentication
+CLERK_PUBLISHABLE_KEY=your_publishable_key
+CLERK_SECRET_KEY=your_secret_key
 
+
+# Movie Data
 TMDB_API_KEY=your_tmdb_api_key
+
+
+# SMTP Email
+SENDER_EMAIL=your_email
+SMTP_USER=your_smtp_user
+SMTP_PASS=your_smtp_password
+
+
+# Inngest
+INNGEST_EVENT_KEY=your_event_key
+INNGEST_SIGNING_KEY=your_signing_key
+
+
+# Stripe
+STRIPE_PUBLISHABLE_KEY=your_publishable_key
+STRIPE_SECRET_KEY=your_secret_key
+STRIPE_WEBHOOK_SECRET=your_webhook_secret
 ```
 
-Run server:
+Run backend:
 
 ```bash
 npm start
 ```
 
-Backend:
+Backend runs on:
 
 ```
-http://localhost:5000
+http://localhost:3000
 ```
 
 ---
 
-# 🔑 Environment Variables
+# 🔐 Environment Variables
 
-## Client
+## Client Environment
 
-| Variable | Purpose |
+| Variable | Description |
 |---|---|
-| VITE_CLERK_PUBLISHABLE_KEY | Clerk authentication |
-| VITE_BACKEND_URL | Backend API URL |
+| VITE_CURRENCY | Currency symbol |
+| VITE_BASE_URL | Backend API URL |
+| VITE_TMDB_IMAGE_BASE_URL | TMDB image URL |
+| VITE_CLERK_PUBLISHABLE_KEY | Clerk frontend key |
 
-## Server
 
-| Variable | Purpose |
+## Server Environment
+
+| Variable | Description |
 |---|---|
-| MONGODB_URI | Database connection |
+| MONGODB_URI | MongoDB database URL |
 | CLERK_SECRET_KEY | Clerk backend authentication |
-| TMDB_API_KEY | Movie API |
+| TMDB_API_KEY | Movie API key |
+| SMTP_USER | Email service username |
+| SMTP_PASS | Email service password |
+| INNGEST_EVENT_KEY | Inngest event key |
+| STRIPE_SECRET_KEY | Stripe payment secret |
 
 ---
 
 # 📸 Screenshots
 
-Add screenshots of:
+Add screenshots:
 
 - Home Page
-- Movie Details
+- Movie Details Page
 - Booking Page
+- Payment Page
 - Admin Dashboard
 
 
@@ -200,11 +294,33 @@ Add screenshots of:
 
 # 🔮 Future Improvements
 
-- Online payment integration
-- Email booking confirmation
-- QR ticket generation
 - Mobile application
+- QR code ticket generation
 - AI movie recommendations
+- Advanced search filters
+- More payment methods
+- Real-time seat locking
+
+
+---
+
+# 🤝 Contribution
+
+Contributions are welcome.
+
+Steps:
+
+```bash
+git checkout -b feature-name
+
+git add .
+
+git commit -m "Add new feature"
+
+git push origin feature-name
+```
+
+Create a Pull Request.
 
 ---
 
@@ -213,10 +329,12 @@ Add screenshots of:
 **Mohammad Yasir Hameed**
 
 GitHub:
+
 https://github.com/Yasir-11111
+
 
 ---
 
 # 📄 License
 
-This project is created for learning and portfolio purposes.
+This project is developed for learning and portfolio purposes.
