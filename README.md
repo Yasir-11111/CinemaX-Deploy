@@ -283,11 +283,30 @@ http://localhost:3000
 
 Add screenshots:
 
-- Home Page
-- Movie Details Page
-- Booking Page
-- Payment Page
-- Admin Dashboard
+### Home Page
+
+<img width="1918" height="1028" alt="Screenshot 2026-08-19 051810" src="https://github.com/user-attachments/assets/fbc87ec4-3528-436f-9780-a10292f97c63" />
+
+### Movie Details Page
+
+
+<img width="1907" height="1021" alt="Screenshot 2026-08-19 053204" src="https://github.com/user-attachments/assets/d65850a3-c934-42b5-ab54-23a348c399b3" />
+
+### Booking Page
+
+
+ <img width="1906" height="1023" alt="Screenshot 2026-08-19 053252" src="https://github.com/user-attachments/assets/73e2f747-cb26-4457-a928-20a05893093c" />
+
+### Payment Page
+
+
+<img width="1901" height="1026" alt="Screenshot 2026-08-19 053428" src="https://github.com/user-attachments/assets/bf02c542-3926-4217-b5dc-969d15ee3d32" />
+
+### Admin Dashboard
+
+
+<img width="1912" height="1026" alt="Screenshot 2026-08-19 053607" src="https://github.com/user-attachments/assets/b5bc1c1d-702c-4a62-9747-237199083e7e" />
+
 
 
 ---
