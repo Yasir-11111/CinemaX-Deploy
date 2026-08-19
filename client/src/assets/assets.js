@@ -1,5 +1,4 @@
 import logo from "./logo.svg";
-
 import googlePlay from "./googlePlay.svg";
 import appStore from "./appStore.svg";
 import screenImage from "./screenImage.svg";
@@ -19,8 +18,8 @@ export const dummyTrailers = [
     videoUrl: "https://www.youtube.com/watch?v=IG-eByZdz6Y",
   },
   {
-    image: "https://img.youtube.com/vi/-sAOWhvheK8/maxresdefault.jpg",
-    videoUrl: "https://www.youtube.com/watch?v=-sAOWhvheK8",
+    image: "https://img.youtube.com/vi/AcM1GhIsEas/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=AcM1GhIsEas",
   },
   {
     image: "https://img.youtube.com/vi/9r-tT5IN0vg/maxresdefault.jpg",
